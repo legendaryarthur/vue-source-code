@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Vue.js源码分析</title>
+    <meta name="generator" content="VuePress 1.5.0">
+    <link rel="icon" href="/vue-source-code/favicon.ico">
+    <meta name="description" content="vue source code">
+    <link rel="preload" href="/vue-source-code/assets/css/0.styles.bdb39efe.css" as="style"><link rel="preload" href="/vue-source-code/assets/js/app.763df265.js" as="script"><link rel="preload" href="/vue-source-code/assets/js/2.f596cb4b.js" as="script"><link rel="preload" href="/vue-source-code/assets/js/12.5088931e.js" as="script"><link rel="prefetch" href="/vue-source-code/assets/js/10.82fcefc2.js"><link rel="prefetch" href="/vue-source-code/assets/js/11.9f2cda07.js"><link rel="prefetch" href="/vue-source-code/assets/js/13.eb36579a.js"><link rel="prefetch" href="/vue-source-code/assets/js/14.e52eb017.js"><link rel="prefetch" href="/vue-source-code/assets/js/15.25c8193d.js"><link rel="prefetch" href="/vue-source-code/assets/js/16.b84de418.js"><link rel="prefetch" href="/vue-source-code/assets/js/17.1a630fed.js"><link rel="prefetch" href="/vue-source-code/assets/js/3.24de1c3b.js"><link rel="prefetch" href="/vue-source-code/assets/js/4.211e1f9f.js"><link rel="prefetch" href="/vue-source-code/assets/js/5.e0e71051.js"><link rel="prefetch" href="/vue-source-code/assets/js/6.cce7a65e.js"><link rel="prefetch" href="/vue-source-code/assets/js/7.9cf18d2f.js"><link rel="prefetch" href="/vue-source-code/assets/js/8.e1fcbb3f.js"><link rel="prefetch" href="/vue-source-code/assets/js/9.542843de.js">
+    <link rel="stylesheet" href="/vue-source-code/assets/css/0.styles.bdb39efe.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/vue-source-code/" class="home-link router-link-active"><!----> <span class="site-name">Vue.js源码分析</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/vue-source-code/start/" class="nav-link">
+  v2.x
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/vue-source-code/start/" class="nav-link">
+  v2.x
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>准备工作</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/vue-source-code/start/" class="sidebar-link">介绍</a></li><li><a href="/vue-source-code/start/flow.html" class="sidebar-link">认识Flow</a></li><li><a href="/vue-source-code/start/directory.html" class="sidebar-link">Vue.js 源码目录设计</a></li><li><a href="/vue-source-code/start/build.html" class="sidebar-link">Vue.js 源码构建</a></li><li><a href="/vue-source-code/start/entrance.html" class="sidebar-link">从入口开始</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>数据驱动</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/vue-source-code/data-driven/" aria-current="page" class="sidebar-link">介绍</a></li><li><a href="/vue-source-code/data-driven/new-vue.html" class="sidebar-link">new Vue 发生了什么</a></li><li><a href="/vue-source-code/data-driven/mount.html" class="sidebar-link">/data-driven/mount.html</a></li><li><a href="/vue-source-code/data-driven/render.html" class="sidebar-link">/data-driven/render.html</a></li><li><a href="/vue-source-code/data-driven/virtual-dom.html" aria-current="page" class="active sidebar-link">/data-driven/virtual-dom.html</a></li><li><a href="/vue-source-code/data-driven/create-element.html" class="sidebar-link">/data-driven/create-element.html</a></li><li><a href="/vue-source-code/data-driven/update.html" class="sidebar-link">/data-driven/update.html</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/vue-source-code/data-driven/render.html" class="prev">
+        /data-driven/render.html
+      </a></span> <span class="next"><a href="/vue-source-code/data-driven/create-element.html">
+        /data-driven/create-element.html
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/vue-source-code/assets/js/app.763df265.js" defer></script><script src="/vue-source-code/assets/js/2.f596cb4b.js" defer></script><script src="/vue-source-code/assets/js/12.5088931e.js" defer></script>
+  </body>
+</html>
